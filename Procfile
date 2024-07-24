@@ -1,1 +1,1 @@
-web: gunicorn -w 4 -k uvicorn.worlers.UvicornWorker mail_disk:app
+web: gunicorn -w 4 -k uvicorn.worlers.UvicornWorker mail_disk:app trtyrthy
