@@ -10,7 +10,7 @@ app = FastAPI()
 def bytes_to_gb(bytes_value):
     return round(bytes_value / (1024 ** 3))
 
-#SECRET_KEY = os.getenv('SECRET_KEY')
+
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USER = 'pallavipatil0713@gmail.com'  
@@ -64,7 +64,11 @@ def get_disk_space():
                 message = f'Total: {bytes_to_gb(usage.total)} GB, Used: {bytes_to_gb(usage.used)} GB, Free: {bytes_to_gb(usage.free)} GB'
                 status_msg = send_email(subject, message)
 
-    return {"Disk Information":disks , "message": status_msg}
+    return {"Disk Information":{
+                "total": 40,
+                "used": 20,
+                "free": 50,
+                "percent": 10 } , "message": status_msg}
 
 
 if __name__ == "__main__":
